@@ -1,9 +1,44 @@
 import './App.css'
-import react from 'react';
+import emailjs from 'emailjs-com'
+import Swal from 'sweetalert2'
+import {useRef} from 'react'
 
 function App() {
+
+  const form =  useRef()
+
+
+    const sendEmail = (e) => {
+       e.preventDefault();
+        console.log(form.current)
+    emailjs.sendForm('service_itwzkjm', 'template_7mgo3hj', form.current, 'user_KoXVkTMGlIdTdQgNSOyw6')
+     .then((res) => {
+        // console.log(res,"res");
+        Swal.fire({
+          title: 'Message Sent',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      })
+      .catch((err) => {
+        console.log(err,"err");
+        Swal.fire({
+          title: 'Oops! Some error occurred',
+          text: 'Please try again later',
+          icon: 'error',
+          confirmButtonText: 'Close'
+        })
+      }
+
+      );
+
+    e.target.reset();
+  };
+
+
+
   return <> <div className='welcome' >
-    <h1><i class="fab fa-pagelines fa-sm"></i> Welcome <i class="fab fa-pagelines fa-sm"></i> </h1>
+    <h1><i className="fab fa-pagelines fa-sm"></i> Welcome <i className="fab fa-pagelines fa-sm"></i> </h1>
   </div>
    
    <h1 className='brand'>RAKAUSHA</h1>
@@ -24,34 +59,37 @@ function App() {
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name" />
+      <div className="modal-body">
+
+        <form ref={form} onSubmit={sendEmail} >
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Name:</label>
+            <input type="text" className="form-control" name='name' id="recipient-name" />
           </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" id="recipient-name" />
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Email:</label>
+            <input type="email" className="form-control" name='user_email' id="recipient-name" />
           </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+          <div className="form-group">
+            <label htmlFor="message-text" className="col-form-label">Message:</label>
+            <textarea className="form-control" rows="5" name='message' id="message-text"></textarea>
           </div>
-        </form>
+       
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type='submit' className="btn btn-primary">Send message</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+
+       </form>
       </div>
     </div>
   </div>
