@@ -51,7 +51,7 @@ function App() {
     <hr className='line' style={{ height: '2px', backgroundColor: 'rgb(85, 63, 49)', margin: 'auto', marginBottom: '40px' }} />
     <div className='img-cont'>
       <img src={`./coming-soon.png`} id='img-one' className="img-fluid" alt="" />
-      <img src={`./image.jpg`} id='img-two' className='img-fluid' alt="" />
+      <img src={`./image.jpg`} id='img-two' className='img-fluid' alt="" style={{width:"100%"}} />
       <button className='button' type="button" data-toggle="modal" data-target="#exampleModal" > GET IN TOUCH </button>
 
     </div>
@@ -68,19 +68,19 @@ function App() {
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">New message</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div className="modal-body">
 
             <form ref={form} onSubmit={sendEmail} >
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Name:</label>
-                <input type="text" className="form-control" name='name' id="recipient-name" required/>
+                <input type="text" className="form-control" name='name' id="recipient-name" required />
               </div>
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Email:</label>
-                <input type="email" className="form-control" name='user_email' id="recipient-name" required/>
+                <input type="email" className="form-control" name='user_email' id="recipient-name" required />
               </div>
               <div className="form-group">
                 <label htmlFor="message-text" className="col-form-label">Message:</label>
