@@ -3,6 +3,8 @@ import './App.css'
 import Swal from 'sweetalert2'
 import emailjs from 'emailjs-com'
 import { useRef } from 'react'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 function App() {
 
@@ -56,9 +58,9 @@ function App() {
 
     </div>
 
-    <h2 style={{ fontFamily: 'serif', paddingTop: '30px' }}>Connect With Quality products</h2>
-    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px' }} >Copyright 2021 Rakausha - all rights reserved</p>
-    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px' }} >Created by Arctic Devs</p>
+    <h2 style={{ fontFamily: 'serif', paddingTop: '30px',textAlign:"center" }}>Connect With Quality products</h2>
+    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px',textAlign:"center" }} >Copyright 2021 Rakausha - all rights reserved</p>
+    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px',textAlign:"center" }} >Created by Arctic Devs</p>
 
 
 
