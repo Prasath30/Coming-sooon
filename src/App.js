@@ -2,14 +2,20 @@ import './App.css'
 
 import Swal from 'sweetalert2'
 import emailjs from 'emailjs-com'
-import { useRef } from 'react'
+import { useRef ,useState,useEffect} from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 function App() {
 
   const form = useRef()
+    const [date, setdate] = useState()
 
+
+  useEffect(() => {
+    let date = new Date().getFullYear()
+    setdate(date)
+  }, [])
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -59,7 +65,9 @@ function App() {
     </div>
 
     <h2 style={{ fontFamily: 'serif', paddingTop: '30px',textAlign:"center" }}>Connect With Quality products</h2>
-    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px',textAlign:"center" }} >Copyright 2021 Rakausha - all rights reserved</p>
+    <p  style={{ fontFamily: 'serif', paddingTop: '30px',textAlign:"center" }} > <a href="https://www.instagram.com/rakausha/"><i class="fab fa-instagram fa-3x"    ></i></a> </p>
+    
+    <p style={{ fontFamily: 'sans-serif', paddingTop: '30px',textAlign:"center" }} >Copyright {date} Rakausha - all rights reserved</p>
     <p style={{ fontFamily: 'sans-serif', paddingTop: '30px',textAlign:"center" }} >Created by Arctic Devs</p>
 
 
